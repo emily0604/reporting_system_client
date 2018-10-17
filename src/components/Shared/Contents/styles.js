@@ -5,7 +5,6 @@ const ContentWrapper = styled.div`
   margin: 40px;
   padding: 20px;
   float: left;
-  width: calc(100vw - 380px);
 `;
 
 const ContentHeader = styled.div`

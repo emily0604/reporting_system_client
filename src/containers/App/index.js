@@ -11,6 +11,11 @@ const Home = Loadable({
   loading
 });
 
+const Dashboard = Loadable({
+  loader: () => import('components/Dashboard'),
+  loading
+});
+
 const Auth = Loadable({
   loader: () => import('components/Auth'),
   loading
@@ -27,6 +32,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/auth" component={Auth} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/daily_reports" component={DailyReports} />
       </Switch>
     </MainWrapper>

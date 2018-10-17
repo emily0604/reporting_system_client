@@ -1,9 +1,8 @@
 import React from 'react';
-import User from '../User';
 
 const Dashboard = () => (
   <div>
-    <User />
+    This is Dashboard Component.
   </div>
 );
 

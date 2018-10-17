@@ -1,37 +1,33 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 
 const CURRENT_USER_QUERY = gql`
   query {
-      me {
-          id
-          name
-          email
-          avatar
-          role
-      }
+    me {
+      id
+      name
+      email
+      avatar
+      roles
+    }
   }
 `;
 
-const User = props => (
-  <Query {...props} query={CURRENT_USER_QUERY}>
-    {({ loading, error, data}) => {
-      if (loading) return <div>Loading...</div>;
-      if (error) return <div>Error</div>;
+class User extends React.Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+  };
 
-      const profile = data.me;
-
-      return (
-        <div>
-          <p>{profile.name}</p>
-          <p>{profile.email}</p>
-          <img src={profile.avatar} alt="" style={{ width: '64px', height: '64px'}}/>
-        </div>
-      )
-    }}
-  </Query>
-);
+  render() {
+    return (
+      <Query {...this.props} query={CURRENT_USER_QUERY}>
+        {payload => this.props.children(payload)}
+      </Query>
+    );
+  }
+}
 
 export default User;
 export { CURRENT_USER_QUERY };
