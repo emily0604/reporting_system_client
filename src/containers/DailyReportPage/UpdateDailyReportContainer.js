@@ -16,6 +16,8 @@ class UpdateDailyReportContainer extends Component {
 
     if (error) return <ErrorMessage error={error} />;
 
+    console.log(dailyReport);
+
     return (
       <ContentWrapper>
         <Header>

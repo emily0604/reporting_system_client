@@ -1,5 +1,4 @@
 import styled from 'react-emotion';
-import {Input} from 'semantic-ui-react';
 
 export const CreateTaskFormWrapper = styled.div`
   width: 100%;
@@ -21,9 +20,9 @@ export const SelectProject = styled.select`
   margin-right: 0.5em;
 `;
 
-export const TaskInput = styled(Input)`
+export const TaskInput = styled.input`
   width: 100% !important;
-  max-width: ${props => props.width || '500px'} !important;
+  max-width: ${props => props.small ? '150px' : '500px'} !important;
   margin-right: 0.5em !important;
 `;
 
